@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
+import com.gongxc.mock.MockUtil;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class TestMock {
     static void beforeAll() {
         wireMockServer = new WireMockServer(wireMockConfig().port(8083)); //No-args constructor will start on port 8080, no HTTPS
         wireMockServer.start();
-        configureFor("localhost", 8083);
+        configureFor("127.0.0.1", 8083);
         System.out.println("mock server start");
     }
 
@@ -82,6 +83,27 @@ public class TestMock {
         given()
                 .when().log().all().get("http://127.0.0.1:8083/1")
                 .then().log().all().statusCode(200);
+
+    }
+
+    @Test
+    void mocks(){
+        MockUtil.mocking("you are a goog boy");
+        given()
+                .when().log().all().get("http://127.0.0.1:8084/1")
+                .then().log().all().statusCode(200);
+       MockUtil.stopMocking();
+
+    }
+
+    @Test
+    void mocking(){
+        MockUtil.mocking("{\"result\":\"success\",\"message\":\"成功！\"}");
+        given()
+                .when().log().all().get("http://127.0.0.1:8084/1")
+                .then().log().all().statusCode(200)
+                .body("result",equalTo("success"));
+        MockUtil.stopMocking();
 
     }
 }
