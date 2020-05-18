@@ -1,4 +1,3 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.gongxc.mock.MockUtil;
 import org.junit.jupiter.api.AfterAll;
@@ -9,10 +8,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
-import org.json.JSONObject;
-import com.fasterxml.jackson.databind.JsonNode;
-
-import java.io.IOException;
 
 
 /**

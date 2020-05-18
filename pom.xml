@@ -20,6 +20,8 @@
             <version>2.7.1</version>
             <type>pom</type>
         </dependency>
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -27,12 +29,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.tomakehurst</groupId>
-            <artifactId>wiremock-jre8</artifactId>
-            <version>2.25.1</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -56,6 +53,17 @@
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock-jre8</artifactId>
             <version>2.25.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.0-alpha1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.0-alpha1</version>
         </dependency>
 
     </dependencies>
