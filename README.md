@@ -1,4 +1,4 @@
 # dubbo-mock-test
-dibbo测试
+dubbo接口测试
 
-mock
+及mock服务的实现

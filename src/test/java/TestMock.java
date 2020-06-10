@@ -70,6 +70,18 @@ public class TestMock {
 
     }
 
+    @Test
+    void resJson1(){
+
+        stubFor(get(urlEqualTo("/json"))
+                .willReturn(aResponse().withHeader("content-type", "application/json")
+                        .withBody("{\"result\":\"success\",\"message\":\"成功！\"}")));
+        given()
+                .when().log().all().get("http://127.0.0.1:8083/json")
+                .then().log().all().body("message",equalTo("成功！"));
+
+    }
+
 
 
     @Test
